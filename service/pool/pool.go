@@ -53,11 +53,13 @@ func NewConnection(host, username, password string) (sessionID int64, err error)
 
 	client, err := nebula.NewClient(host)
 	if err != nil {
+		log.Println("44444444444444444")
 		log.Println(err)
 		return client.GetSessionID(), err
 	}
 	err = client.Connect(username, password)
 	if err != nil {
+		log.Println("555555555555555")
 		return 0, err
 	}
 	sessionID = client.GetSessionID()

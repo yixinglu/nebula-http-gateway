@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"log"
 	dao "nebula-http-gateway/service/dao"
 	common "nebula-http-gateway/utils"
 
@@ -35,6 +36,7 @@ func (this *DatabaseController) Connect() {
 	var res Response
 	var params Request
 	json.Unmarshal(this.Ctx.Input.RequestBody, &params)
+	log.Fatalln("11111111111")
 	sessionID, err := dao.Connect(params.Host, params.Username, params.Password)
 
 	if err == nil {
@@ -44,6 +46,7 @@ func (this *DatabaseController) Connect() {
 		res.Data = m
 		this.SetSession("nsid", sessionID)
 	} else {
+		log.Fatalln("22222222")
 		res.Code = -1
 		res.Message = err.Error()
 	}
