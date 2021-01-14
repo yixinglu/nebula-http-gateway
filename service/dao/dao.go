@@ -70,7 +70,7 @@ func getColumnValue(p *graph.ColumnValue) common.Any {
 
 // Connect return if the nebula connect succeed
 func Connect(host, username, password string) (sessionID int64, err error) {
-	log.Panicln("33333333333333")
+	log.Println("33333333333333")
 	sessionID, err = pool.NewConnection(host, username, password)
 	if err != nil {
 		log.Println(err)
